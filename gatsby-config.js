@@ -1,8 +1,13 @@
+require('dotenv').config({
+  path: '.env',
+});
+const path = require('path');
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Pen&Paper — Spotify Playlists for Roleplaying Sessions`,
+    description: `Background game music for pen and paper, tabletop or writing sessions. Hand picked to not contain anything distracting.`,
+    author: `@djfarly`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,11 +29,32 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    'gatsby-plugin-typescript',
+    {
+      resolve: 'gatsby-plugin-typescript-checker',
+      options: { tsconfig: path.resolve(__dirname, './tsconfig.json') },
+    },
+    'gatsby-plugin-theme-ui',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-polyfill-io',
+      options: {
+        features: [
+          'HTMLPictureElement',
+          'WeakSet',
+          'String.prototype.startsWith',
+          'Array.prototype.includes',
+          'String.prototype.endsWith',
+          'Array.from',
+          'Promise',
+          'Object.entries',
+          'IntersectionObserver',
+        ],
+      },
+    },
+    'gatsby-plugin-offline',
   ],
-}
+};
