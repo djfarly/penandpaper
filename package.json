@@ -11,7 +11,7 @@
     "@theme-ui/components": "^0.2.50",
     "@types/theme-ui": "^0.2.5",
     "emotion": "^10.0.23",
-    "gatsby": "^2.18.4",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.2.34",
     "gatsby-plugin-manifest": "^2.2.30",
     "gatsby-plugin-offline": "^3.0.24",
